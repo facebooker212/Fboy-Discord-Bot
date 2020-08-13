@@ -62,14 +62,14 @@ async def _ontas(ctx):
 
 
 @client.command(aliases=['binario'])
-async def _binario(ctx, number):
-    new_number = int(number)
+async def _binario(ctx, letter):
+    number = ord(letter)
     binary_number = []
     for x in range(8):
-        division = new_number / 2
-        slot = new_number % 2
+        division = number / 2
+        slot = number % 2
         slotInt = int(slot)
-        new_number = division
+        number = division
         binary_number.insert(0, slotInt)
     await ctx.channel.send(f'Tu numero en binario es: {binary_number}')
 
