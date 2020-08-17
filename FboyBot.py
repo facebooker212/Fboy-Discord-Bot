@@ -62,15 +62,17 @@ async def _ontas(ctx):
 
 
 @client.command(aliases=['binario'])
-async def _binario(ctx, letter):
-    number = ord(letter)
-    binary_number = []
-    for x in range(8):
-        division = number / 2
-        slot = number % 2
-        slotInt = int(slot)
-        number = division
-        binary_number.insert(0, slotInt)
-    await ctx.channel.send(f'Tu numero en binario es: {binary_number}')
+async def _binario(ctx, word):
+    binary = []
+    for x in range(len(word)):
+        reversedWord = ''.join(reversed(word))
+        letter = ord(reversedWord[x])
+        binary.insert(0, ' ')
+        for x in range(8):
+            divison = letter / 2
+            binarySlot = letter % 2
+            binary.insert(0, int(binarySlot))
+            letter = divison
+    await ctx.channel.send(f'Tu palabra en binario es: {binary}')
 
-client.run('Your token')
+client.run('Your Token')
